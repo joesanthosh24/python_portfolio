@@ -5044,4 +5044,25 @@ label {
 .project-links > .live-site {
   color: blue;
 }
+
+.message_box {
+  /* width: 100%; */
+  padding: 30px;
+  margin: 25px;
+  text-align: center;
+  background-color: #2d672d;
+  font-size: 25px;
+  color: white;
+  position: relative;
+}
+
+#close_icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.close {
+}
 /*# sourceMappingURL=main.bc58148c.map*/

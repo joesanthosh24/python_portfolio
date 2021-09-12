@@ -13,20 +13,18 @@
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no" />
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./static/assets/apple-icon-180x180.png"
-    />
-    <link href="./static/assets/favicon.ico" rel="icon" />
-
     <title>Title page</title>
-
     <link href="./static/main.d8e0d294.css" rel="stylesheet" />
+    <link href="./static/assets/favicon.ico" rel="icon" />
   </head>
 
   <body class="">
+    {% if msg %}
+      <div class="message_box">
+        <i class="fa fa-close" id="close_icon"></i>
+        <p>{{ msg }}</p>
+      </div>
+    {% endif %}
     <!-- Add your content of header -->
     <div class="background-color-layer"></div>
     <main class="content-wrapper">
@@ -310,13 +308,15 @@
             <div class="card">
               <div class="card-block">
                 <h2>Contact</h2>
-                <form action="" class="reveal-content">
+                <form action="/send_email" method="post" class="reveal-content" enctype="multipart/form-data" name="email_form">
                   <div class="form-group">
                     <input
                       type="email"
                       class="form-control"
                       id="email"
                       placeholder="Email"
+                      name="contact_email"
+                      required
                     />
                   </div>
                   <div class="form-group">
@@ -325,6 +325,7 @@
                       class="form-control"
                       id="subject"
                       placeholder="Subject"
+                      name="contact_subject"
                     />
                   </div>
                   <div class="form-group">
@@ -332,6 +333,8 @@
                       class="form-control"
                       rows="5"
                       placeholder="Enter your message"
+                      name="contact_message"
+                      required
                     ></textarea>
                   </div>
                   <div class="form-group">
@@ -350,7 +353,6 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <p><img src="./assets/images/mashup-icon.svg" alt="" /></p>
 
             <p>
               ©All right reserved. Design
@@ -400,11 +402,11 @@
       </div>
     </footer>
 
-    <script>
+    <!-- <script>
       document.addEventListener("DOMContentLoaded", function (event) {
         scrollRevelation(".card");
       });
-    </script>
+    </script> -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
 
 <script>
@@ -419,6 +421,6 @@
 </script>
 
 -->
-    <script type="text/javascript" src="./main.bc58148c.js"></script>
+    <script type="text/javascript" src="./static/main.bc58148c.js"></script>
   </body>
 </html>
